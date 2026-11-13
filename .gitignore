@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# dados baixados e gerados (reproduzíveis pelos scripts 01 e 02)
+data/raw/
+data/encosta/
+*.cache
+
+# treino completo fica fora; o peso final versionado está em models/
+runs/
+weights/
+capturas/
+logs/*.log
+*.mp4
+!docs/video/*.md
+.env
+
+# projeto de vídeo (HyperFrames): artefatos de check/snapshot e render
+video/.hyperframes/
+video/renders/
+video/node_modules/

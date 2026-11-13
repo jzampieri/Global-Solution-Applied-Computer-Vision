@@ -1,0 +1,83 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s4-video-moldura { position: absolute; left: 0; top: 0; width: 1080px; height: 1080px; overflow: hidden; }
+    #s4-video { position: absolute; left: 0; top: 0; width: 1080px; height: 1080px; object-fit: cover; }
+    .s4-col { position: absolute; left: 1176px; width: 660px; }
+    #s4-l1 { top: 170px; font-size: 80px; }
+    #s4-l2 { top: 370px; }
+    #s4-fps { top: 520px; }
+    #s4-fps-n { font-size: 200px; line-height: 1; }
+    #s4-fps-u { margin-top: 18px; }
+    #s4-nota { top: 930px; font-size: 30px; font-weight: 400; }
+
+    #s4-api-moldura { position: absolute; left: 1000px; top: 0; width: 820px; height: 1080px; overflow: hidden; }
+    #s4-api-cam { position: absolute; left: 0; top: 0; width: 820px; }
+    #s4-api { display: block; width: 820px; height: auto; }
+    .s4-col-e { position: absolute; left: 96px; width: 820px; }
+    #s4-api-tit { top: 330px; font-size: 84px; }
+    #s4-api-sub { top: 690px; }
+  </style>
+  <div id="root" data-composition-id="tempo" data-width="1920" data-height="1080">
+    <div id="s4-chao" class="concreto"></div>
+
+    <div id="s4-video-moldura">
+      <video id="s4-video" class="clip" src="assets/tempo_real.mp4" data-start="0" data-duration="14" data-media-start="0"
+        data-track-index="1" muted playsinline></video>
+    </div>
+    <div id="s4-texto" class="clip" data-start="0" data-duration="14">
+      <div id="s4-l1" class="s4-col display">
+        <span class="w">Câmera</span><br /><span class="w">em</span> <span class="w">movimento</span>
+      </div>
+      <div id="s4-l2" class="s4-col linha">
+        <span class="w">e</span> <span class="w">o</span> <span class="w">detector</span> <span class="w">roda</span>
+        <span class="w">em</span> <span class="w">cada</span> <span class="w">quadro</span>
+      </div>
+      <div id="s4-fps" class="s4-col">
+        <div id="s4-fps-n" class="display">21,5</div>
+        <div id="s4-fps-u" class="linha">quadros por segundo, medidos</div>
+      </div>
+      <div id="s4-nota" class="s4-col linha">Fotos do teste com câmera simulada. Rostos borrados antes da análise.</div>
+    </div>
+
+    <div id="s4-api-clip" class="clip" data-start="14" data-duration="5" style="position: absolute; inset: 0">
+      <div id="s4-api-moldura">
+        <div id="s4-api-cam">
+          <img id="s4-api" src="assets/api.png" alt="Página real do serviço de Visão com o resultado de uma análise" />
+        </div>
+      </div>
+      <div id="s4-api-tit" class="s4-col-e display">
+        <span class="w">A</span> <span class="w">mesma</span><br /><span class="w">análise</span> <span class="w">na</span><br />
+        <span class="w">página</span> <span class="w">do</span><br /><span class="w">produto</span>
+      </div>
+      <div id="s4-api-sub" class="s4-col-e linha" style="top: 790px">
+        <span class="w">POST</span> <span class="w">/visao/detectar</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t) =>
+      tl.fromTo(`${sel} .w`, { opacity: 0, filter: "blur(8px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out", stagger: 0.07 }, t);
+
+    // a foto da cena anterior pousou à esquerda borrada: o vídeo assenta no mesmo lugar
+    tl.fromTo("#s4-video-moldura", { filter: "blur(14px)" }, { filter: "blur(0px)", duration: 0.2, ease: "power2.out" }, 0);
+    entra("#s4-l1", 0.5);
+    entra("#s4-l2", 2.4);
+    tl.fromTo("#s4-fps-n", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 4.6);
+    tl.fromTo("#s4-fps-u", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, 4.85);
+    tl.fromTo("#s4-nota", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 7.5);
+
+    // whip para a tela da API
+    tl.to("#s4-texto > *", { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power3.in" }, 13.62);
+    tl.to("#s4-video-moldura", { x: -360, opacity: 0, filter: "blur(18px)", duration: 0.3, ease: "power3.in" }, 13.7);
+    tl.fromTo("#s4-api-moldura", { x: 420, filter: "blur(16px)", opacity: 0 },
+      { x: 0, filter: "blur(0px)", opacity: 1, duration: 0.35, ease: "expo.out" }, 14.0);
+    tl.fromTo("#s4-api-cam", { y: 0 }, { y: -(1173 * 820 / 800 - 1080), duration: 4.0, ease: "power2.inOut" }, 14.5);
+    entra("#s4-api-tit", 14.35);
+    entra("#s4-api-sub", 15.3);
+    tl.to("#s4-api-clip > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 18.75);
+    window.__timelines["tempo"] = tl;
+  </script>
+</template>

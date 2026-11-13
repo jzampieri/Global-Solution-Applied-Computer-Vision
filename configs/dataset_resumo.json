@@ -1,0 +1,63 @@
+{
+  "classes": [
+    "rachadura",
+    "cicatriz_deslizamento",
+    "dano_estrutural"
+  ],
+  "seed": 42,
+  "fontes": {
+    "building-cracks": {
+      "train": 454,
+      "val": 131,
+      "test": 65
+    },
+    "landslides": {
+      "train": 195,
+      "val": 58,
+      "test": 29
+    },
+    "wall-damage": {
+      "train": 322,
+      "val": 92,
+      "test": 47
+    }
+  },
+  "splits": {
+    "train": {
+      "imagens_originais": 971,
+      "imagens_aumentadas": 274,
+      "imagens_fundo": 40,
+      "caixas_por_classe": {
+        "rachadura": 907,
+        "cicatriz_deslizamento": 313,
+        "dano_estrutural": 87
+      }
+    },
+    "val": {
+      "imagens_originais": 281,
+      "imagens_aumentadas": 0,
+      "imagens_fundo": 17,
+      "caixas_por_classe": {
+        "rachadura": 202,
+        "cicatriz_deslizamento": 79,
+        "dano_estrutural": 21
+      }
+    },
+    "test": {
+      "imagens_originais": 141,
+      "imagens_aumentadas": 0,
+      "imagens_fundo": 6,
+      "caixas_por_classe": {
+        "rachadura": 100,
+        "cicatriz_deslizamento": 32,
+        "dano_estrutural": 12
+      }
+    }
+  },
+  "augmentation_offline": {
+    "borrao": 70,
+    "neblina": 78,
+    "chuva": 60,
+    "pouca_luz": 66
+  }
+}

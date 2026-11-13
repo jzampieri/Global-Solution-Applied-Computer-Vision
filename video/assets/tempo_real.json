@@ -1,0 +1,466 @@
+{
+ "quadros": 600,
+ "fps_medio": 21.5,
+ "registro": [
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 0.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.791
+    ],
+    [
+     "cicatriz_deslizamento",
+     0.4182
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 5.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7056
+    ],
+    [
+     "cicatriz_deslizamento",
+     0.4019
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 23.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7485
+    ],
+    [
+     "cicatriz_deslizamento",
+     0.5497
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 23.7,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7255
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 24.0,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7656
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 23.9,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7379
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 23.9,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7369
+    ],
+    [
+     "cicatriz_deslizamento",
+     0.3601
+    ]
+   ]
+  },
+  {
+   "foto": "05_landslides_00080.jpg",
+   "fps": 22.8,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.7119
+    ],
+    [
+     "cicatriz_deslizamento",
+     0.3755
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 21.2,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8856
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 20.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8854
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 20.9,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8851
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 20.9,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8882
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 20.8,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8774
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 20.8,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8672
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 21.2,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.878
+    ]
+   ]
+  },
+  {
+   "foto": "01_building-cracks_00008.jpg",
+   "fps": 21.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8886
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.8128
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.775
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.8081
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.3,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.8273
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.8103
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.8,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.8125
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 21.9,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.838
+    ]
+   ]
+  },
+  {
+   "foto": "06_landslides_00089.jpg",
+   "fps": 22.1,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "cicatriz_deslizamento",
+     0.8475
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 22.1,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8498
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.9,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8387
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8306
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8135
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.6,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8388
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.5,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.7953
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.3,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8397
+    ]
+   ]
+  },
+  {
+   "foto": "08_wall-damage_00120.jpg",
+   "fps": 21.1,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "dano_estrutural",
+     0.8615
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 21.0,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8701
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 20.7,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8609
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 20.2,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8571
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 20.1,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.839
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 20.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8337
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 20.4,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8004
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 20.7,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.8227
+    ]
+   ]
+  },
+  {
+   "foto": "03_building-cracks_00003.jpg",
+   "fps": 21.2,
+   "nivel": "Alerta",
+   "deteccoes": [
+    [
+     "rachadura",
+     0.7907
+    ]
+   ]
+  }
+ ]
+}

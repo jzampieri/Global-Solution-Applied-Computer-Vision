@@ -1,0 +1,71 @@
+{
+  "split": "test",
+  "imagens_teste": 141,
+  "modelos": {
+    "yolo11n": {
+      "pesos_mb": 5.5,
+      "parametros_M": 2.61,
+      "geral": {
+        "precisao": 0.815,
+        "recall": 0.597,
+        "mAP50": 0.699,
+        "mAP50_95": 0.412
+      },
+      "por_classe": {
+        "rachadura": {
+          "precisao": 0.937,
+          "recall": 0.749,
+          "mAP50": 0.88,
+          "mAP50_95": 0.53
+        },
+        "cicatriz_deslizamento": {
+          "precisao": 0.659,
+          "recall": 0.375,
+          "mAP50": 0.469,
+          "mAP50_95": 0.244
+        },
+        "dano_estrutural": {
+          "precisao": 0.848,
+          "recall": 0.667,
+          "mAP50": 0.747,
+          "mAP50_95": 0.462
+        }
+      },
+      "fps_gpu_rtx3050": 71.5,
+      "fps_cpu": 26.9
+    },
+    "yolo11s": {
+      "pesos_mb": 19.2,
+      "parametros_M": 9.43,
+      "geral": {
+        "precisao": 0.701,
+        "recall": 0.655,
+        "mAP50": 0.706,
+        "mAP50_95": 0.388
+      },
+      "por_classe": {
+        "rachadura": {
+          "precisao": 0.881,
+          "recall": 0.82,
+          "mAP50": 0.863,
+          "mAP50_95": 0.502
+        },
+        "cicatriz_deslizamento": {
+          "precisao": 0.536,
+          "recall": 0.562,
+          "mAP50": 0.549,
+          "mAP50_95": 0.226
+        },
+        "dano_estrutural": {
+          "precisao": 0.686,
+          "recall": 0.583,
+          "mAP50": 0.705,
+          "mAP50_95": 0.436
+        }
+      },
+      "fps_gpu_rtx3050": 71.3,
+      "fps_cpu": 13.0
+    }
+  },
+  "escolhido": "yolo11n"
+}

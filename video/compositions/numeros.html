@@ -1,0 +1,69 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s5-total { position: absolute; left: 96px; top: 250px; width: 1700px; }
+    #s5-n { font-size: 330px; line-height: 0.9; }
+    #s5-n-sub { margin-top: 40px; font-size: 52px; }
+
+    #s5-tit { position: absolute; left: 96px; top: 150px; width: 1700px; font-size: 44px; }
+    .s5-linha { position: absolute; left: 96px; width: 1728px; height: 170px; }
+    .s5-rot { font-family: var(--corpo); font-weight: 700; font-size: 44px; }
+    .s5-barra { position: absolute; left: 0; top: 66px; height: 64px; transform-origin: 0% 50%; }
+    .s5-val { position: absolute; top: 56px; font-size: 76px; line-height: 1; }
+    #s5-fraco { position: absolute; left: 96px; top: 935px; font-size: 44px; }
+  </style>
+  <div id="root" data-composition-id="numeros" data-width="1920" data-height="1080">
+    <div id="s5-chao" class="concreto"></div>
+
+    <div id="s5-total" class="clip" data-start="0" data-duration="3.2">
+      <div id="s5-n" class="display">0</div>
+      <div id="s5-n-sub" class="linha">fotos públicas rotuladas, de 3 fontes abertas</div>
+    </div>
+
+    <div id="s5-grafico" class="clip" data-start="3.2" data-duration="4.8">
+      <div id="s5-tit" class="linha">Acerto em fotos nunca vistas (mAP@50, conjunto de teste)</div>
+      <div class="s5-linha" style="top: 280px">
+        <div class="s5-rot">Rachadura</div>
+        <div id="s5-b1" class="s5-barra" style="width: 1232px; background: var(--rachadura)"></div>
+        <div id="s5-v1" class="s5-val display" style="left: 1262px">0,88</div>
+      </div>
+      <div class="s5-linha" style="top: 490px">
+        <div class="s5-rot">Dano estrutural grave</div>
+        <div id="s5-b2" class="s5-barra" style="width: 1050px; background: var(--dano)"></div>
+        <div id="s5-v2" class="s5-val display" style="left: 1080px">0,75</div>
+      </div>
+      <div class="s5-linha" style="top: 700px">
+        <div class="s5-rot">Cicatriz de deslizamento</div>
+        <div id="s5-b3" class="s5-barra" style="width: 658px; background: var(--cicatriz)"></div>
+        <div id="s5-v3" class="s5-val display" style="left: 688px">0,47</div>
+      </div>
+      <div id="s5-fraco" class="linha">Cicatriz ainda é o ponto fraco</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // o número conta até 1.393 e pousa (pop em 2,0 s); valor exibido é função do tempo da timeline
+    const n = { v: 0 };
+    tl.fromTo(n, { v: 0 }, {
+      v: 1393, duration: 1.7, ease: "power3.out",
+      onUpdate: () => {
+        document.querySelector("#s5-n").textContent = Math.round(n.v).toLocaleString("pt-BR");
+      },
+    }, 0.3);
+    tl.fromTo("#s5-n", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.25);
+    tl.fromTo("#s5-n-sub", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 1.2);
+    tl.to("#s5-total > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in", stagger: 0.05 }, 2.95);
+
+    // barras: cada uma cresce da esquerda; o valor aparece quando a barra chega
+    tl.fromTo("#s5-tit", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 3.3);
+    tl.fromTo(".s5-rot", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out", stagger: 0.15 }, 3.55);
+    [1, 2, 3].forEach((i) => {
+      const t = 3.6 + (i - 1) * 0.15;
+      tl.fromTo(`#s5-b${i}`, { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out" }, t);
+      tl.fromTo(`#s5-v${i}`, { opacity: 0, filter: "blur(6px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.15, ease: "power4.out" }, t + 0.35);
+    });
+    tl.fromTo("#s5-fraco", { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 5.0);
+    tl.to("#s5-grafico > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 7.75);
+    window.__timelines["numeros"] = tl;
+  </script>
+</template>

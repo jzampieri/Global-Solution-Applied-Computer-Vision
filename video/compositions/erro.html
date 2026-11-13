@@ -1,0 +1,50 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s6-img-moldura { position: absolute; left: 0; top: 0; width: 1080px; height: 1080px; overflow: hidden; }
+    #s6-img-moldura img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .s6-col { position: absolute; left: 1176px; width: 660px; }
+    #s6-a { top: 220px; font-size: 104px; }
+    #s6-a-sub { top: 470px; }
+    #s6-leg { top: 900px; font-size: 30px; font-weight: 400; }
+    #s6-b { top: 330px; font-size: 104px; }
+  </style>
+  <div id="root" data-composition-id="erro" data-width="1920" data-height="1080">
+    <div id="s6-chao" class="concreto"></div>
+    <div id="s6-img-moldura">
+      <img id="s6-img" src="assets/erro_grade.jpg" alt="Erro real: grades de janela marcadas como dano estrutural e a rachadura verdadeira não detectada" />
+    </div>
+    <div id="s6-erra" class="clip" data-start="0" data-duration="3.55">
+      <div id="s6-a" class="s6-col display"><span class="w">Ela</span> <span class="w">erra</span></div>
+      <div id="s6-a-sub" class="s6-col linha">
+        <span class="w">Grades</span> <span class="w">viraram</span> <span class="w">dano;</span><br />
+        <span class="w">a</span> <span class="w">rachadura</span> <span class="w">real</span> <span class="w">passou</span>
+      </div>
+      <div id="s6-leg" class="s6-col linha">Tracejado verde: o que deveria ser marcado</div>
+    </div>
+    <div id="s6-sugere" class="clip" data-start="3.55" data-duration="2.45">
+      <div id="s6-b" class="s6-col display">
+        <span class="w">Por</span> <span class="w">isso</span><br /><span class="w">ela</span> <span class="w">só</span><br />
+        <span class="w">sugere</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const entra = (sel, t) =>
+      tl.fromTo(`${sel} .w`, { opacity: 0, filter: "blur(8px)" },
+        { opacity: 1, filter: "blur(0px)", duration: 0.18, ease: "power4.out", stagger: 0.07 }, t);
+
+    // o erro entra por baixo como um corte vertical e assenta
+    tl.fromTo("#s6-img-moldura", { y: 120, filter: "blur(12px)", opacity: 0 },
+      { y: 0, filter: "blur(0px)", opacity: 1, duration: 0.45, ease: "expo.out" }, 0);
+    entra("#s6-a", 0.3);
+    entra("#s6-a-sub", 0.6);
+    tl.fromTo("#s6-leg", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 1.1);
+    tl.to("#s6-erra > *", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 3.33);
+    entra("#s6-b", 3.62);
+    tl.to("#s6-b", { opacity: 0, filter: "blur(8px)", duration: 0.2, ease: "power3.in" }, 5.77);
+    tl.to("#s6-img-moldura", { opacity: 0, filter: "blur(10px)", duration: 0.25, ease: "power3.in" }, 5.72);
+    window.__timelines["erro"] = tl;
+  </script>
+</template>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --concreto: #cfcac2;
+        --tinta: #16130f;
+        --cicatriz: #ff8c00;
+        --rachadura: #e60000;
+        --dano: #00a0e6;
+        --display: "Archivo Black", sans-serif;
+        --corpo: "Inter", sans-serif;
+        --mono: "JetBrains Mono", monospace;
+        --ruido: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.09 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.55 0'/></filter><rect width='400' height='400' filter='url(%23n)'/></svg>");
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--concreto); }
+      #root { position: relative; width: 100%; height: 100%; font-family: var(--corpo); color: var(--tinta); }
+
+      /* chão de concreto: cor chapada + ruído fino estático */
+      .concreto { position: absolute; inset: 0; background-color: var(--concreto); }
+      .concreto::after { content: ""; position: absolute; inset: 0; background-image: var(--ruido); opacity: 0.06; }
+
+      .display { font-family: var(--display); font-weight: 400; letter-spacing: -0.01em; line-height: 1.02; }
+      .linha { font-family: var(--corpo); font-weight: 700; font-size: 44px; line-height: 1.2; }
+      .w { display: inline-block; }
+
+      /* etiqueta no estilo da saída do detector */
+      .etiqueta { position: absolute; color: #fff; font-family: var(--corpo); font-weight: 700; white-space: nowrap; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="86" data-width="1920" data-height="1080">
+      <div id="encosta" data-composition-id="encosta" data-composition-src="compositions/encosta.html"
+        data-start="0" data-duration="12" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="sinais" data-composition-id="sinais" data-composition-src="compositions/sinais.html"
+        data-start="12" data-duration="7" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="exemplo" data-composition-id="exemplo" data-composition-src="compositions/exemplo.html"
+        data-start="19" data-duration="26" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="tempo" data-composition-id="tempo" data-composition-src="compositions/tempo.html"
+        data-start="45" data-duration="19" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="numeros" data-composition-id="numeros" data-composition-src="compositions/numeros.html"
+        data-start="64" data-duration="8" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="erro" data-composition-id="erro" data-composition-src="compositions/erro.html"
+        data-start="72" data-duration="6" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+      <div id="fim" data-composition-id="fim" data-composition-src="compositions/fim.html"
+        data-start="78" data-duration="8" data-track-index="1" data-track-kind="graphics" data-width="1920" data-height="1080"></div>
+
+      <!-- trilha: MusicGen local (scripts/gerar_trilha.py), normalizada a -17 LUFS; calma no início, cresce no tempo real -->
+      <audio id="trilha" class="clip" src="assets/bgm/trilha_norm.wav" data-start="0" data-duration="86" data-media-start="0"
+        data-track-index="4" data-volume="0.7" data-fade-in="0.4" data-fade-out="2.5"></audio>
+
+      <!-- efeitos: cada pico pousa 1 quadro depois da imagem (início = momento + 0,033 - pico) -->
+      <audio id="sfx-corte-1" class="clip" src="assets/sfx/whoosh.mp3" data-start="11.871" data-duration="0.575" data-track-index="5" data-volume="0.55"></audio>
+      <audio id="sfx-pop-1" class="clip" src="assets/sfx/pop.mp3" data-start="15.313" data-duration="0.72" data-track-index="6" data-volume="0.9"></audio>
+      <audio id="sfx-pop-2" class="clip" src="assets/sfx/pop.mp3" data-start="16.543" data-duration="0.72" data-track-index="6" data-volume="0.9"></audio>
+      <audio id="sfx-pop-3" class="clip" src="assets/sfx/pop.mp3" data-start="17.773" data-duration="0.72" data-track-index="6" data-volume="0.9"></audio>
+      <audio id="sfx-corte-2" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="18.871" data-duration="0.575" data-track-index="5" data-volume="0.45"></audio>
+      <audio id="sfx-risco-1" class="clip" src="assets/sfx/click-soft.mp3" data-start="21.0" data-duration="0.366" data-track-index="7" data-volume="0.5"></audio>
+      <audio id="sfx-risco-2" class="clip" src="assets/sfx/click-soft.mp3" data-start="21.25" data-duration="0.366" data-track-index="10" data-volume="0.45"></audio>
+      <audio id="sfx-risco-3" class="clip" src="assets/sfx/click-soft.mp3" data-start="21.5" data-duration="0.366" data-track-index="11" data-volume="0.5"></audio>
+      <audio id="sfx-pop-caixa" class="clip" src="assets/sfx/pop.mp3" data-start="27.063" data-duration="0.72" data-track-index="6" data-volume="1.2"></audio>
+      <audio id="sfx-riser" class="clip" src="assets/sfx/riser.mp3" data-start="29.363" data-duration="3.47" data-track-index="8" data-volume="0.45" data-fade-in="0.6"></audio>
+      <audio id="sfx-impacto" class="clip" src="assets/sfx/impact-bass-1.mp3" data-start="32.76" data-duration="2.1" data-track-index="9" data-volume="0.75"></audio>
+      <audio id="sfx-tecla-1" class="clip" src="assets/sfx/key-press.mp3" data-start="38.557" data-duration="0.4" data-track-index="7" data-volume="0.4"></audio>
+      <audio id="sfx-tecla-2" class="clip" src="assets/sfx/key-press.mp3" data-start="39.107" data-duration="0.4" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx-tecla-3" class="clip" src="assets/sfx/key-press.mp3" data-start="39.657" data-duration="0.4" data-track-index="7" data-volume="0.4"></audio>
+      <audio id="sfx-tecla-4" class="clip" src="assets/sfx/key-press.mp3" data-start="40.207" data-duration="0.4" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx-tecla-5" class="clip" src="assets/sfx/key-press.mp3" data-start="40.757" data-duration="0.4" data-track-index="7" data-volume="0.4"></audio>
+      <audio id="sfx-tecla-6" class="clip" src="assets/sfx/key-press.mp3" data-start="41.307" data-duration="0.4" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx-tecla-7" class="clip" src="assets/sfx/key-press.mp3" data-start="41.857" data-duration="0.4" data-track-index="7" data-volume="0.4"></audio>
+      <audio id="sfx-corte-3" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="42.53" data-duration="3.2" data-track-index="5" data-volume="0.5" data-fade-out="0.6"></audio>
+      <audio id="sfx-corte-4" class="clip" src="assets/sfx/whoosh.mp3" data-start="58.871" data-duration="0.575" data-track-index="5" data-volume="0.5"></audio>
+      <audio id="sfx-corte-5" class="clip" src="assets/sfx/whoosh-short.mp3" data-start="63.871" data-duration="0.575" data-track-index="5" data-volume="0.45"></audio>
+      <audio id="sfx-pop-numero" class="clip" src="assets/sfx/pop.mp3" data-start="65.913" data-duration="0.72" data-track-index="6" data-volume="1.2"></audio>
+      <audio id="sfx-corte-6" class="clip" src="assets/sfx/whoosh.mp3" data-start="71.871" data-duration="0.575" data-track-index="5" data-volume="0.5"></audio>
+      <audio id="sfx-corte-7" class="clip" src="assets/sfx/whoosh-cinematic.mp3" data-start="75.53" data-duration="3.2" data-track-index="5" data-volume="0.45" data-fade-out="0.6"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

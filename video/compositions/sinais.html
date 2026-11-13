@@ -1,0 +1,50 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #s2-titulo { position: absolute; left: 96px; top: 330px; width: 1700px; }
+    #s2-nome { font-size: 124px; }
+    #s2-sub { margin-top: 36px; font-size: 52px; }
+    .s2-quadro { position: absolute; inset: 0; overflow: hidden; }
+    .s2-quadro img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .s2-quadro .etiqueta { left: 96px; top: 840px; font-size: 64px; padding: 10px 28px 14px; }
+  </style>
+  <div id="root" data-composition-id="sinais" data-width="1920" data-height="1080">
+    <div id="s2-chao" class="concreto"></div>
+    <div id="s2-titulo" class="clip" data-start="0" data-duration="3.3">
+      <div id="s2-nome" class="display">Encosta Viva · Visão</div>
+      <div id="s2-sub" class="linha">
+        <span class="w">Um</span> <span class="w">YOLO11</span> <span class="w">treinado</span> <span class="w">por</span>
+        <span class="w">nós</span> <span class="w">para</span> <span class="w">ver</span> <span class="w">três</span> <span class="w">sinais</span>
+      </div>
+    </div>
+
+    <div id="s2-m1" class="clip s2-quadro" data-start="3.3" data-duration="1.23">
+      <img id="s2-m1-img" src="assets/classe_rachadura.jpg" alt="Rachadura em parede" />
+      <div id="s2-m1-tag" class="etiqueta" style="background: var(--rachadura)">Rachadura</div>
+    </div>
+    <div id="s2-m2" class="clip s2-quadro" data-start="4.53" data-duration="1.23">
+      <img id="s2-m2-img" src="assets/classe_cicatriz.jpg" alt="Cicatriz de deslizamento em encosta" />
+      <div id="s2-m2-tag" class="etiqueta" style="background: var(--cicatriz); color: var(--tinta)">Cicatriz de deslizamento</div>
+    </div>
+    <div id="s2-m3" class="clip s2-quadro" data-start="5.76" data-duration="1.24">
+      <img id="s2-m3-img" src="assets/classe_dano.jpg" alt="Viga com concreto desplacado" />
+      <div id="s2-m3-tag" class="etiqueta" style="background: var(--dano)">Dano estrutural grave</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // nome: a linha inteira entra desfocando; o subtítulo vai do cinza à tinta, palavra a palavra
+    tl.fromTo("#s2-nome", { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.2, ease: "power4.out" }, 0.2);
+    tl.fromTo("#s2-sub .w", { color: "#9c968c" }, { color: "#16130f", duration: 0.12, ease: "none", stagger: 0.08 }, 0.5);
+    tl.fromTo("#s2-sub", { opacity: 0 }, { opacity: 1, duration: 0.12 }, 0.45);
+    tl.to("#s2-titulo > *", { opacity: 0, filter: "blur(8px)", duration: 0.18, ease: "power3.in", stagger: 0.05 }, 3.02);
+
+    // montagem: cada corte entra levemente grande e assenta; a etiqueta carimba 0,1 s depois
+    [["#s2-m1", 3.3], ["#s2-m2", 4.53], ["#s2-m3", 5.76]].forEach(([id, t]) => {
+      tl.fromTo(`${id}-img`, { scale: 1.12 }, { scale: 1.0, duration: 0.9, ease: "expo.out" }, t);
+      tl.fromTo(`${id}-tag`, { opacity: 0, scale: 1.08, transformOrigin: "0% 100%" },
+        { opacity: 1, scale: 1, duration: 0.15, ease: "expo.out" }, t + 0.1);
+    });
+    window.__timelines["sinais"] = tl;
+  </script>
+</template>

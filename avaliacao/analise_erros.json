@@ -1,0 +1,17 @@
+{
+  "imagens_sem_erro": 96,
+  "imagens_com_falso_positivo": 24,
+  "imagens_com_falso_negativo": 43,
+  "falsos_positivos_por_classe": {
+    "rachadura": 17,
+    "cicatriz_deslizamento": 5,
+    "dano_estrutural": 3
+  },
+  "falsos_negativos_por_classe": {
+    "rachadura": 27,
+    "cicatriz_deslizamento": 19,
+    "dano_estrutural": 4
+  },
+  "limiar_confianca": 0.35,
+  "criterio": "IoU >= 0.5 com caixa do gabarito da mesma classe"
+}
