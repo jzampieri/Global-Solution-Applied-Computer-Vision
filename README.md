@@ -11,8 +11,7 @@ O morador fotografa uma parede, um muro ou a encosta. Um **YOLO11 treinado por n
 | Entregável | Onde |
 |---|---|
 | Relatório PDF (título, integrantes, resumo, introdução, objetivo, ferramentas, metodologia, resultados, conclusão) | [`docs/Relatorio_Applied_Computer_Vision.pdf`](docs/Relatorio_Applied_Computer_Vision.pdf) |
-| Vídeo de demonstração | <https://youtu.be/1sVGlOVufug> · feito em HyperFrames (projeto em [`video/`](video/)) |
-| Código completo | este repositório |
+| Vídeo de demonstração | <https://youtu.be/1sVGlOVufug> |
 
 ---
 

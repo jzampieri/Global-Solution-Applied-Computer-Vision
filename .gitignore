@@ -16,6 +16,8 @@ logs/*.log
 *.mp4
 !docs/video/*.md
 .env
+video/
+
 
 # projeto de vídeo (HyperFrames): artefatos de check/snapshot e render
 video/.hyperframes/
