@@ -11,7 +11,7 @@ O morador fotografa uma parede, um muro ou a encosta. Um **YOLO11 treinado por n
 | Entregável | Onde |
 |---|---|
 | Relatório PDF (título, integrantes, resumo, introdução, objetivo, ferramentas, metodologia, resultados, conclusão) | [`docs/Relatorio_Applied_Computer_Vision.pdf`](docs/Relatorio_Applied_Computer_Vision.pdf) |
-| Vídeo de demonstração | _link do YouTube (não listado) após a gravação_ · roteiro em [`docs/roteiro_video.md`](docs/roteiro_video.md) |
+| Vídeo de demonstração | <https://youtu.be/1sVGlOVufug> · feito em HyperFrames (projeto em [`video/`](video/)) |
 | Código completo | este repositório |
 
 ---
@@ -94,7 +94,7 @@ Verde tracejado = gabarito; caixa colorida = predição. Os erros mais comuns s�
 Testado no Windows 11, Python 3.12 e NVIDIA RTX 3050 8 GB. Também roda em CPU, mas o treino fica lento.
 
 ```bash
-git clone <URL-do-repositório> && cd applied_computer_vision
+git clone https://github.com/jzampieri/Global-Solution-Applied-Computer-Vision.git && cd Global-Solution-Applied-Computer-Vision
 python -m venv .venv
 # Windows: .venv\Scripts\activate   |   Linux/Mac: source .venv/bin/activate
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128   # GPU NVIDIA (pule em CPU)
@@ -126,7 +126,7 @@ python scripts/03_treinar.py --modelo yolo11n.pt --epocas 80
 python scripts/03_treinar.py --modelo yolo11s.pt --epocas 80
 python scripts/04_avaliar.py
 python scripts/05_figuras.py
-python scripts/06_gerar_relatorio.py --repo <URL-do-repo> --video <URL-do-video>
+python scripts/06_gerar_relatorio.py --repo https://github.com/jzampieri/Global-Solution-Applied-Computer-Vision --video https://youtu.be/1sVGlOVufug
 ```
 
 **Testes:**
@@ -196,6 +196,7 @@ applied_computer_vision/
 ├── avaliacao/               # metricas.json · comparacao.md · analise_erros.json
 ├── configs/dataset_resumo.json
 ├── docs/                    # relatório PDF, textos do relatório, figuras, roteiro do vídeo, fotos de demo
+├── video/                   # projeto HyperFrames do vídeo de demonstração (cenas, assets, trilha)
 └── tests/                   # pytest
 ```
 
@@ -212,6 +213,7 @@ applied_computer_vision/
 
 ## 10. Links
 
+- Repositório: <https://github.com/jzampieri/Global-Solution-Applied-Computer-Vision>
 - Relatório: [`docs/Relatorio_Applied_Computer_Vision.pdf`](docs/Relatorio_Applied_Computer_Vision.pdf)
-- Vídeo: _a preencher_
+- Vídeo: <https://youtu.be/1sVGlOVufug>
 - Componente Inteligência (GenAI) do mesmo produto: <https://github.com/jzampieri/Global-Solution-Generative-AI-For-Engineer>
